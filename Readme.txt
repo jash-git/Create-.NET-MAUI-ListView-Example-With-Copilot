@@ -9,3 +9,8 @@
     ■重點就是要他從頭開始自己做，雖然到最後它還是沒成功完成
 
     ■但是可以從它的解題過程發現一條新的做法
+	
+相關文章:
+李宏毅_生成式導論 2024_第3講：訓練不了人工智慧？你可以訓練你自己 
+~ https://www.youtube.com/watch?v=AVIKFXLCPY8&list=PLJV_el3uVTsPz6CTopeRp2L2t4aL_KgiI
+~ https://hackmd.io/@shaoeChen/SyxNumm-0?utm_source=preview-mode&utm_medium=rec
