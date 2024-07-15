@@ -3,15 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.MainPage">
 
-    <StackLayout>
-        <Label Text="CollectionView Example" 
-               VerticalOptions="CenterAndExpand" 
-               HorizontalOptions="CenterAndExpand" />
-
-        <CollectionView x:Name="MyCollectionView" SelectionMode="Single">
+    <StackLayout Margin="20" Spacing="20">
+        <Button x:Name="Add" Text="新增" Clicked="Add_Clicked"/>
+        <Button x:Name="Del" Text="刪除" Clicked="Del_Clicked"/>
+        <Button x:Name="Insert" Text="插入" Clicked="Insert_Clicked" />
+        
+        <CollectionView x:Name="MyCollectionView"
+                        VerticalScrollBarVisibility="Never"
+                        HorizontalScrollBarVisibility="Default" SelectedItem="{Binding SelectedItem}"
+                        SelectionMode="Single" SelectionChanged="MyCollectionView_SelectionChanged">
+            
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid x:Name="itemGrid" ColumnDefinitions="*,2*" Margin="10">
                         <Grid.Resources>
                             <Style TargetType="Grid">
                                 <Setter Property="VisualStateManager.VisualStateGroups">
@@ -28,8 +32,7 @@
                                 </Setter>
                             </Style>
                         </Grid.Resources>
-                        <StackLayout>
-                            <Label Text="{Binding Name}" TextColor="Blue">
+                            <Label Grid.Column="0" Text="{Binding Name}" TextColor="Blue">
                                 <Label.Triggers>
                                     <DataTrigger TargetType="Label" Binding="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=BackgroundColor}" Value="Blue">
                                         <Setter Property="TextColor" Value="White" />
@@ -37,14 +40,14 @@
                                 </Label.Triggers>
                             </Label>
 
-                            <Label Text="{Binding Detail}" TextColor="Green">
+                            <Label Grid.Column="1" Text="{Binding Detail}" TextColor="Green">
                                 <Label.Triggers>
                                     <DataTrigger TargetType="Label" Binding="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=BackgroundColor}" Value="Blue">
                                         <Setter Property="TextColor" Value="White" />
                                     </DataTrigger>
                                 </Label.Triggers>
                             </Label>
-                        </StackLayout>
+
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
